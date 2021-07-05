@@ -1,0 +1,56 @@
+<h2>Shopping Cart</h2>
+    <div class="cart">
+        <div class="item">
+            <div class="image">
+                <a
+                    href="https://www.amazon.com.tr/Xiaomi-Watch-Lite-Ak%C4%B1ll%C4%B1-Saat/dp/B08P57P577/ref=sr_1_1?__mk_tr_TR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=saat&qid=1625481795&sr=8-1">
+                    <img src="https://m.media-amazon.com/images/I/61kwg1kCcoL._AC_UL320_.jpg" alt="">
+                </a>
+            </div>
+            <div class="info">
+                <h4>Daniel Wellington Steel Watch </h4>
+                <p class="seller">by Daniel Wellington</p>
+                <p class="status available">In Stock</p>
+                <p class="shipping">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, inventore.</p>
+                <a href="#">Delete</a>
+                <a href="#" class="secondary">Save for later</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="image">
+                <a
+                    href="https://www.amazon.com.tr/Huawei-Watch-Sport-Ak%C4%B1ll%C4%B1-Garantili/dp/B07YP3PWNF/ref=sr_1_2?__mk_tr_TR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=saat&qid=1625481795&sr=8-2">
+                    <img src="https://m.media-amazon.com/images/I/71wcKkqLUaS._AC_UL320_.jpg" alt="">
+                </a>
+            </div>
+            <div class="info">
+                <h4>Daniel Wellington Steel Watch </h4>
+                <p class="seller">by Daniel Wellington</p>
+                <p class="status available">In Stock</p>
+                <p class="shipping">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, inventore.</p>
+                <a href="#">Delete</a>
+                <a href="#" class="secondary">Save for later</a>
+            </div>
+        </div>
+
+        <h2 class="saved-header">Saved for later (1 item)</h2>
+        <div class="cart">
+            <div class="item">
+                <div class="image">
+                    <a
+                        href="https://www.amazon.com.tr/Huawei-Classic-Ak%C4%B1ll%C4%B1-Kahverengi-Garantili/dp/B07YP3WGML/ref=sr_1_12?__mk_tr_TR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=saat&qid=1625481795&sr=8-12">
+                        <img src="https://m.media-amazon.com/images/I/81TubIv92xS._AC_UL320_.jpg" alt="">
+                    </a>
+                </div>
+                <div class="info">
+                    <h4>Daniel Wellington Steel Watch </h4>
+                    <p class="seller">by Daniel Wellington</p>
+                    <p class="status available">In Stock</p>
+                    <p class="shipping">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, inventore.</p>
+                    <a href="#">Delete</a>
+                    <a href="#" class="secondary">Save for later</a>
+                </div>
+            </div>
+        </div>
+    </div>
