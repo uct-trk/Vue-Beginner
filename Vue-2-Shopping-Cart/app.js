@@ -1,3 +1,74 @@
+Vue.component("VueCart", {
+    props: {
+        cart: {
+            type: Array,
+            required: true,
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        type: {
+            type: String,
+            required: true
+        }
+    },
+    methods: {
+        removeFromCart(index) {
+            console.log(index);
+            return this.cart.splice(index, 1);
+        },
+        changeCart(index){
+            const item = this.removeFromCart(index);
+            this.$emit("itemchangedoncart", item[0], this.type);
+        }
+    },
+    computed: {
+        cartTotal() {
+            let total = 0;
+            this.cart.forEach((item) => {
+                total += parseFloat(item.price, 10);
+            })
+            return total.toFixed(2);
+        },
+        isShoppingCart(){
+            return this.type == "shoppingCart"
+        },
+        isSavedCart(){
+            return this.type == "savedCart"
+        }
+    },
+    template: `
+    <div class="cart-wrapper">
+    <h2>{{title}}</h2>
+        <p v-if="!cart.length">No item in Cart</p>
+        <div class="cart">
+            <div class="item" v-for="(item, index) in cart">
+                <div class="image">
+                    <a v-bind:href="item.url">
+                        <img v-bind:src="item.image" alt="">
+                    </a>
+                </div>
+                <div class="info">
+                    <h4>{{item.name}}</h4>
+                    <p class="seller">by {{item.seller}}</p>
+                    <p class="status available" v-if="item.isAvailable">In Stock</p>
+                    <p class="shipping" v-if="item.isEligible">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, inventore.</p>
+                    <a href="#" v-on:click="removeFromCart(index)">Delete</a>
+                    <a href="#" class="secondary" v-on:click="changeCart(index)" v-if="isShoppingCart">Saved for later</a>
+                    <a href="#" class="secondary" v-on:click="changeCart(index)" v-if="isSavedCart">Move to Cart</a>
+                </div>
+                <p class="price">\${{ item.price }}</p>
+            </div>  
+        </div>
+        <div class="subtotal" v-if="cart.length">
+            Subtotal ({{cart.length}} items): <span class="price">\${{cartTotal}}</span>
+        </div>
+        </div>
+    `
+});
+
+
 window.addEventListener("load", () => {
     new Vue({
         el: "#app",
@@ -8,32 +79,12 @@ window.addEventListener("load", () => {
             saved: []
         },
         methods: {
-            removeFromCart(index) {
-                console.log(index);
-                this.cart.splice(index, 1);
-            },
-            removeFromSaved(index) {
-                console.log(index);
-                this.saved.splice(index, 1);
-            },
-            saveForLater(index) {
-                console.log(`saved ${index}`)
-                const item = this.cart.splice(index, 1);
-                this.saved.push(item[0]);
-            },
-            moveToCart(index) {
-                console.log(`moved ${index}`)
-                const item = this.saved.splice(index, 1);
-                this.cart.push(item[0]);
-            },
-        },
-        computed: {
-            cartTotal() {
-                let total = 0;
-                this.cart.forEach((item) => {
-                    total += parseFloat(item.price, 10); 
-                })
-                return total.toFixed(2);
+            handleItemChange(item, cartType){
+                if(cartType === "shoppingCart"){
+                    this.saved.push(item);
+                } else {
+                    this.cart.push(item);
+                }
             }
         },
         created() {
