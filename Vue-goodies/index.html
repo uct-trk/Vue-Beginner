@@ -25,7 +25,43 @@
         <input type="checkbox" v-model="isSelected">
     </div>
 
+    <div id="vcloak" v-cloak>
+        <ul>
+            <li v-for="(user, index) in users" :key="index">
+                {{user.name}}
+            </li>
+        </ul>
+    </div>
+
+    <div id="slots">
+        <v-select>
+            <v-option value="Foo"></v-option>
+            <v-option value="Bar"></v-option>
+            <v-option value="Baz"></v-option>
+        </v-select>
+    </div>
+
+    <div id="nextTick">
+        {{message}}
+        <button @click="change">Change</button>
+    </div>
+
+    <div id="modifiers">
+        <a href="/foo" @click.prevent="log">Go to foo</a>
+        <button @click.once="log">Button</button>
+        <input type="text" @keyup.enter="log">
+    </div>
+
+    <div id="filters">
+        <p>{{name | uppercase}}</p>
+        <p>{{price | withTax}}</p>
+    </div>
+
     <script src="app.js"></script>
 </body>
+
+<style>
+    [v-cloak] {display: none;}
+</style>
 
 </html>
