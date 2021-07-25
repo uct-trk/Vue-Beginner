@@ -1,0 +1,19 @@
+<template>
+  <div>
+      <CustomText tag="h1">Profile Tag</CustomText>
+  </div>
+</template>
+
+<script>
+import CustomText from '../../components/CustomText.vue'
+export default {
+    name: "ProfileTag",
+    components: {
+        CustomText
+    }
+}
+</script>
+
+<style scoped>
+
+</style>
