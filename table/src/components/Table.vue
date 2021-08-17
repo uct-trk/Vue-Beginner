@@ -1,5 +1,5 @@
 <template>
-  <div class="awesome-table">
+  <section class="awesome-table">
     <table>
       <thead>
         <tr>
@@ -7,7 +7,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(row, index) in tableDate" :key="index">
+        <tr v-for="(row, index) in theData" :key="index">
           <td v-for="(obj, index) in config" :key="index">
             <span v-if="obj.type === 'text'">{{ row[obj.key] }}</span>
             <span v-if="obj.type === 'date'">{{
@@ -20,13 +20,13 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "Table",
-  props: ["tableDate", "config"],
+  props: ["theData", "config"],
 };
 </script>
 
@@ -36,6 +36,9 @@ export default {
   border-radius: 4px;
   color: #333;
   overflow: auto;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 table {
   border-collapse: collapse;
@@ -46,7 +49,7 @@ th {
   position: sticky;
   top: 0;
   text-align: left;
-  background: #ccc;
+  background: #f1f1f1;
   border-bottom: 1px solid #999;
 }
 td {
